@@ -1,46 +1,51 @@
-name: Deploy Lambda Function
-
-permissions:
-  id-token: write
-  contents: read
+name: Deploy .NET 8 Lambda to AWS
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - src/NET8/**
+    branches: [ main ]  # change if you deploy from another branch
 
 jobs:
-  build-deploy:
-      runs-on: ubuntu-latest
-      steps:
-        - name: checkoutRepo
-          uses: actions/checkout@v2  
-        - name: Build and Deploy
-          uses: ./.github/actions/sam-build-and-deploy
-        - name: Install zip tool
-          uses: montudor/action-zip@v1
-        - name: Create Zip file for Lambda function
-          run: zip -r code.zip .
-        - name: AWS CLI v2
-          uses: imehedi/actions-awscli-v2@latest
-          with:            
-            aws-region: "ap-south-1"
-            dotnet-version: '8.x'
-            template-file-path: ./src/NET8/template.yaml
-            stack-name: net-8-base
-            s3-bucket-name: aws-dotnet-lambda-testing
-            args: "lambda update-function-code \
-              --function-name arn:aws:lambda:ap-south-1:539659138309:function:AWSLambdaPractice01 \
-              --zip-file fileb://code.zip"
   deploy:
+    name: Deploy Lambda Function
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
+    env:
+      FUNCTION_NAME: MyDotNetLambdaFunction
+      RUNTIME: dotnet8
+      REGION: ${{ secrets.AWS_REGION }}
 
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: "ap-south-1"
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Install Amazon Lambda Tools
+      run: dotnet tool install -g Amazon.Lambda.Tools
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Publish Lambda package
+      run: dotnet publish -c Release -f net8.0 -o publish
+
+    - name: Zip published output
+      run: |
+        cd publish
+        zip -r ../lambda-package.zip .
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Deploy to Lambda
+      run: |
+        aws lambda update-function-code \
+          --function-name arn:aws:lambda:ap-south-1:539659138309:function:AWSLambdaPractice01 \
+          --zip-file fileb://lambda-package.zip
