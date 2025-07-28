@@ -1,13 +1,9 @@
-/.vs/AWSLambdaPractice01/DesignTimeBuild/.dtbcache.v2
-/.vs/AWSLambdaPractice01/FileContentIndex/aa1770e3-6d3a-43bb-ad90-7e1073e15960.vsidx
 /bin/Release/net8.0/Lambda-Practice001.zip
-/bin/Release/net8.0/linux-x64/AWSLambdaPractice01.deps.json
 /bin/Release/net8.0/linux-x64/AWSLambdaPractice01.dll
 /bin/Release/net8.0/linux-x64/AWSLambdaPractice01.pdb
 /bin/Release/net8.0/linux-x64/AWSLambdaPractice01.runtimeconfig.json
 /bin/Release/net8.0/linux-x64/Amazon.Lambda.Core.dll
 /bin/Release/net8.0/linux-x64/Amazon.Lambda.Serialization.SystemTextJson.dll
-/bin/Release/net8.0/publish/AWSLambdaPractice01.deps.json
 /bin/Release/net8.0/publish/AWSLambdaPractice01.dll
 /bin/Release/net8.0/publish/AWSLambdaPractice01.pdb
 /bin/Release/net8.0/publish/AWSLambdaPractice01.runtimeconfig.json
