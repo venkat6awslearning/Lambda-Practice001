@@ -14,14 +14,10 @@ public class Function
     /// <param name="input">The event for the Lambda function handler to process.</param>
     /// <param name="context">The ILambdaContext that provides methods for logging and describing the Lambda environment.</param>
     /// <returns></returns>
-    public List<string> FunctionHandler(ILambdaContext context)
+    public string FunctionHandler(ILambdaContext context)
     {
-        // Create list and add multiple collections
-        var fruits = new List<string> { "apple", "banana" };
-        fruits.AddRange(new[] { "cherry", "grape", "apple", "pear" });
-        // Filter: starts with 'a'
-        var filtered = fruits.Where(f => f.StartsWith("a")).ToList();
+        
 
-        return filtered;
+        return "I am Ramana";
     }
 }
