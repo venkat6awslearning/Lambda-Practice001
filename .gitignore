@@ -46,3 +46,16 @@
 /obj/project.assets.json
 /obj/project.nuget.cache
 /.vs/AWSLambdaPractice01/FileContentIndex/*.vsidx
+/.vs/AWSLambdaPractice01/v17/*.suo
+/bin/Debug/net8.0/*.json
+/bin/Debug/net8.0/*.dll
+/bin/Debug/net8.0/*.pdb
+/obj/Debug/net8.0/*.Up2Date
+/obj/Debug/net8.0/*.BuildWithSkipAnalyzers
+/obj/Debug/net8.0/*.cache
+/obj/Debug/net8.0/*.txt
+/obj/Debug/net8.0/*.dll
+/obj/Debug/net8.0/*.pdb
+/obj/Debug/net8.0/*.json
+/obj/Debug/net8.0/ref/*.dll
+/obj/Debug/net8.0/refint/*.dll
