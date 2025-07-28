@@ -19,27 +19,27 @@ jobs:
           uses: actions/checkout@v2  
         - name: Build and Deploy
           uses: ./.github/actions/sam-build-and-deploy
+        - name: Install zip tool
+          uses: montudor/action-zip@v1
+        - name: Create Zip file for Lambda function
+          run: zip -r code.zip .
+        - name: AWS CLI v2
+          uses: imehedi/actions-awscli-v2@latest
           with:            
             aws-region: "ap-south-1"
             dotnet-version: '8.x'
             template-file-path: ./src/NET8/template.yaml
             stack-name: net-8-base
             s3-bucket-name: aws-dotnet-lambda-testing
+            args: "lambda update-function-code \
+              --function-name arn:aws:lambda:ap-south-1:539659138309:function:AWSLambdaPractice01 \
+              --zip-file fileb://code.zip"
   deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install zip tool
-        uses: montudor/action-zip@v1
-      - name: Create Zip file for Lambda function
-        run: zip -r code.zip .
-      - name: AWS CLI v2
-        uses: imehedi/actions-awscli-v2@latest
-        with:
-          args: "lambda update-function-code \
-            --function-name arn:aws:lambda:ap-south-1:539659138309:function:AWSLambdaPractice01 \
-            --zip-file fileb://code.zip"
+
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
