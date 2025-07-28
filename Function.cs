@@ -7,15 +7,21 @@ namespace AWSLambdaPractice01;
 
 public class Function
 {
-    
+
     /// <summary>
     /// A simple function that takes a string and does a ToUpper
     /// </summary>
     /// <param name="input">The event for the Lambda function handler to process.</param>
     /// <param name="context">The ILambdaContext that provides methods for logging and describing the Lambda environment.</param>
     /// <returns></returns>
-    public string FunctionHandler(string input, ILambdaContext context)
+    public List<string> FunctionHandler(string input, ILambdaContext context)
     {
-        return input.ToUpper();
+        // Create list and add multiple collections
+        var fruits = new List<string> { "apple", "banana" };
+        fruits.AddRange(new[] { "cherry", "grape", "apple", "pear" });
+        // Filter: starts with 'a'
+        var filtered = fruits.Where(f => f.StartsWith("a")).ToList();
+
+        return filtered;
     }
 }
