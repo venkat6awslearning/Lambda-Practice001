@@ -45,3 +45,4 @@
 /obj/Release/net8.0/linux-x64/refint/AWSLambdaPractice01.dll
 /obj/project.assets.json
 /obj/project.nuget.cache
+/.vs/AWSLambdaPractice01/FileContentIndex/*.vsidx
