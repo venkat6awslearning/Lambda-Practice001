@@ -30,7 +30,7 @@ jobs:
       run: dotnet restore
 
     - name: Publish Lambda package
-      run: dotnet publish -c Release -f net8.0 -o publish
+      run: dotnet publish -c Release -f net8.0 -r linux-x64 -p:PublishReadyToRun=true --self-contained false -o publish
 
     - name: Zip published output
       run: |
