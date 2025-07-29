@@ -43,3 +43,9 @@ TestResult*/
 # GitHub Actions artifacts
 *.coverage
 coverage/
+/.vs/AWSLambdaPractice01/CopilotIndices/17.14.878.3237/*.db
+/.vs/AWSLambdaPractice01/FileContentIndex/*.vsidx
+/.vs/AWSLambdaPractice01/config/*.config
+/.vs/AWSLambdaPractice01/v17/*.v2
+/.vs/AWSLambdaPractice01/v17/*.json
+/.vs/ProjectEvaluation/*.bin
