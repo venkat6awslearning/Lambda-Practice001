@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSLambdaPractice01", "AWSLambdaPractice01.csproj", "{F3DA9365-C268-85AC-90D5-E1BE018A559F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSLambdaData", "src\AWSLambdaData\AWSLambdaData.csproj", "{0D282537-8537-4C16-88D2-7EE5EB76A651}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F3DA9365-C268-85AC-90D5-E1BE018A559F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3DA9365-C268-85AC-90D5-E1BE018A559F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3DA9365-C268-85AC-90D5-E1BE018A559F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D282537-8537-4C16-88D2-7EE5EB76A651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D282537-8537-4C16-88D2-7EE5EB76A651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D282537-8537-4C16-88D2-7EE5EB76A651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D282537-8537-4C16-88D2-7EE5EB76A651}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
