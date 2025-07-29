@@ -49,3 +49,5 @@ coverage/
 /.vs/AWSLambdaPractice01/v17/*.v2
 /.vs/AWSLambdaPractice01/v17/*.json
 /.vs/ProjectEvaluation/*.bin
+/.vs/AWSLambdaPractice01/CopilotIndices/17.14.878.3237/*.db-shm
+/.vs/AWSLambdaPractice01/CopilotIndices/17.14.878.3237/*.db-wal
